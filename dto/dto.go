@@ -1,4 +1,4 @@
-// Package dto defines shared Command and Event types used across 
+// Package dto defines shared Command and Event types used across
 // all services (command-service, domain-processor, projection-worker, query-service).
 package dto
 
