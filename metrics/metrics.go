@@ -10,6 +10,10 @@ import (
 
 func Init(addr string) {
 	http.Handle("/metrics", promhttp.Handler())
+	// Register custom metrics
+	prometheus.MustRegister(TodoCreateCounter)
+
+	// Start the HTTP server for metrics
 	go func() {
 		log.Info().Msgf("metrics server listening on %s", addr)
 		// Start the HTTP server for metric
@@ -17,10 +21,6 @@ func Init(addr string) {
 			log.Error().Err(err).Msg("metrics server failed")
 		}
 	}()
-	log.Info().Msgf("metrics server listening on %s", addr)
-	log.Info().Msg("metrics server started")
-	// Register custom metrics
-	prometheus.MustRegister(TodoCreateCounter)
 }
 
 var TodoCreateCounter = prometheus.NewCounterVec(
