@@ -19,6 +19,8 @@ func Init(addr string) {
 	}()
 	log.Info().Msgf("metrics server listening on %s", addr)
 	log.Info().Msg("metrics server started")
+	// Register custom metrics
+	prometheus.MustRegister(TodoCreateCounter)
 }
 
 var TodoCreateCounter = prometheus.NewCounterVec(
