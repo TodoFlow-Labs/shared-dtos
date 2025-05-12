@@ -53,6 +53,10 @@ const (
 	TodoCreatedEvt EventType = "TodoCreated"
 	TodoUpdatedEvt EventType = "TodoUpdated"
 	TodoDeletedEvt EventType = "TodoDeleted"
+	// add failed event types
+	TodoCreateFailedEvt EventType = "TodoCreateFailed"
+	TodoUpdateFailedEvt EventType = "TodoUpdateFailed"
+	TodoDeleteFailedEvt EventType = "TodoDeleteFailed"
 )
 
 type BaseEvent struct {
